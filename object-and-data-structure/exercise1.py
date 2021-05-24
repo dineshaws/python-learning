@@ -95,7 +95,8 @@ class Test:
     
     def file_operations(self):
         print(f'\n\nDeveloper {self.name} and function file_operations')
-        my_file = open('myfile.txt')
+        file_path = 'object-and-data-structure/myfile.txt';
+        my_file = open(file_path)
         content = my_file.read()
         print(content)
         content_again = my_file.read()
@@ -107,18 +108,18 @@ class Test:
         lines = my_file.readlines()
         print(lines) # ['Hello World, This is example file\n', 'This is second line\n', 'this is the End of file']
         my_file.close()
-        with open('myfile.txt') as my_new_file:
+        with open(file_path) as my_new_file:
             new_content = my_new_file.read()
             print('new_content ', new_content)  
 
         # read mode
-        with open('myfile.txt', mode='r') as f:
+        with open(file_path, mode='r') as f:
             print('read mode file read\n ',f.read())
         # append mode
-        with open('myfile.txt', mode='a') as f:
+        with open(file_path, mode='a') as f:
             f.write('\n This is appended line')
         # read the append file
-        with open('myfile.txt', mode='r') as f:
+        with open(file_path, mode='r') as f:
             print('read appended lines', f.read())
         # write mode
         with open('test.txt', mode='w') as f:
