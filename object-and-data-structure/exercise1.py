@@ -16,6 +16,9 @@ class Test:
         # new way to format string starting from version 3.6
         print(f'Hello, My name is {self.name}') # Hello, My name is Dinesh
 
+        s = 'hello'
+        print('reverse of string ',s[::-1]) #olleh
+
     def list_operations(self):
         print(f'\n\nDeveloper {self.name} and function list_operations') # ['two', 3.0]
         
