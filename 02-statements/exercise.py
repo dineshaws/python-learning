@@ -162,12 +162,38 @@ class Test:
 
         print(f'Random integer is {randint(0, 100)}') # min and max including 
 
-        print('\n INPUT')
-        name = input('What\'s is your name? ')
-        print(f'Name is {name}')
+        # print('\n INPUT')
+        # name = input('What\'s is your name? ')
+        # print(f'Name is {name}')
+
+    def list_comprehensions_operations(self):
+        print(f'\n\nDeveloper {self.name} and function list_comprehensions_operations')
+
+        print('LIST creation from string')
+
+        mystring = self.name
+        mylist = []
+        for letter in mystring:
+            mylist.append(letter)
+        print(mylist)
+
+        # above same doing with list comprehensions
+        print([letter for letter in mystring])
+        print([l for l in 'Hello World']) # ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']
+        print([num for num in range(0, 11)]) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        print([num ** 2 for num in range(0, 11)]) # square
+        print([num ** 0.5 for num in range(0, 11)]) # square root
+        print([x for x in range(0, 21)  if x % 2 == 0]) # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+        print( [((9/5)*temp +32) for temp in [0, 10, 20, 30, 40, 50]]) # convert celcius to fahrenheit 
+        print(['EVEN' if x % 2 == 0 else 'ODD' for x in range(0, 11)]) # ['EVEN', 'ODD', 'EVEN', 'ODD', 'EVEN', 'ODD', 'EVEN', 'ODD', 'EVEN', 'ODD', 'EVEN']
+        print([x*y for x in [1, 2, 3] for y in [1, 10, 100]]) # [1, 10, 100, 2, 20, 200, 3, 30, 300]
+        
+
+
 
 t1 = Test('Dinesh')
 t1.control_flow_operations()
 t1.for_loop_operations()
 t1.while_loop_operations()
 t1.useful_operator_operations()
+t1.list_comprehensions_operations()
