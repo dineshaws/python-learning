@@ -65,6 +65,35 @@ class Problem():
             return_txt += letter*3
         return return_txt
 
+    def blackjack(self, a, b, c):
+        if sum((a, b, c)) <= 21:
+            return sum((a, b, c))
+        elif sum((a, b, c)) > 21 and 11 in [a, b, c]:
+            return sum((a, b, c)) - 10
+        else:
+            return 'BUST'
+
+    def summer_69(self, mlist):
+        sixExist = False
+        skip = False
+        total = 0
+        for index in range(0, len(mlist)):
+            if sixExist == False and mlist[index] == 6:
+                sixExist = True
+                skip = True
+            elif sixExist == True and mlist[index] != 9:
+                skip = True
+
+            if skip == True:
+                continue
+            else:
+                total += mlist[index]
+
+        return total
+
+
+
+
 
 p1 = Problem()
 print(f'returns min {p1.lesser_number(2, 4)} if both are even number')
@@ -85,3 +114,9 @@ print(f'has_33([1, 3, 3]) = {p1.has_33([1, 3, 3])}')
 print(f'has_33([1, 3, 1, 3]) = {p1.has_33([1, 3, 1, 3])}')
 print(f'has_33([3, 1, 3]) = {p1.has_33([3, 1, 3])}')
 print(f'paper_doll("Hello") = {p1.paper_doll("Hello")}')
+print(f'blackjack(5,6,7) = {p1.blackjack(5,6,7)}')
+print(f'blackjack(9,9,9) = {p1.blackjack(9,9,9)}')
+print(f'blackjack(9,9,11) = {p1.blackjack(9,9,11)}')
+print(f'summer_69([1, 3, 5]) = {p1.summer_69([1, 3, 5])}')
+print(f'summer_69([4, 5, 6, 7, 8, 9]) = {p1.summer_69([4, 5, 6, 7, 8, 9])}')
+print(f'summer_69([2, 1, 6, 9, 11]) = {p1.summer_69([2, 1, 6, 9, 11])}')
