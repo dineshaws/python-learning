@@ -3,9 +3,9 @@ import requests
 
 base_path = 'http://quotes.toscrape.com/page/{}/'
 
-authors = []
+authors = set()
 quotes = []
-tags = []
+tags = set()
 
 page = 1
 while True:
@@ -21,14 +21,14 @@ while True:
             break
 
         for top_tag in top_tags:
-            tags.append(top_tag.text)
+            tags.add(top_tag.text)
 
         for quote_box in quotes_box:
             texts = quote_box.select('.text')
             for text in texts:
                 quotes.append(text.text)
             author = quote_box.select('.author')[0].text
-            authors.append(author)
+            authors.add(author)
 
         page = page + 1
         continue
@@ -36,6 +36,7 @@ while True:
         print('No data available for this page', page)
         break
 
-print(authors)
+
 print(quotes)
+print(authors)
 print(tags)
